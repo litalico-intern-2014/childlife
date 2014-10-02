@@ -1,0 +1,94 @@
+<%= form_for @experience, :html => { :class => "form-horizontal experience" } do |f| %>
+
+    <% if @experience.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@experience.errors.count, "error") %> prohibited this experience from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @experience.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :m_income, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :m_income, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:m_income]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :f_income, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :f_income, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:f_income]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :m_start, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :m_start, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:m_start]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :m_total, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :m_total, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:m_total]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :f_start, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :f_start, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:f_start]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :f_total, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :f_total, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:f_total]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :helper, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :helper, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:helper]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :location, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:location]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :body, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :body, :class => 'form-control' %>
+    </div>
+    <%= error_span(@experience[:body]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            experiences_path, :class => 'btn btn-default' %>
+
+<% end %>
