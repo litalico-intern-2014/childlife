@@ -58,25 +58,22 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:m_income) %></th>
-      <th><%= model_class.human_attribute_name(:f_income) %></th>
-      <th><%= model_class.human_attribute_name(:m_start) %></th>
-      <th><%= model_class.human_attribute_name(:m_total) %></th>
-      <th><%= model_class.human_attribute_name(:f_start) %></th>
-      <th><%= model_class.human_attribute_name(:f_total) %></th>
-      <th><%= model_class.human_attribute_name(:helper) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:body) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>夫の収入</th>
+      <th>妻の収入</th>
+      <th>夫の就業開始時間</th>
+      <th>夫の就業時間</th>
+      <th>妻の就業開始時間</th>
+      <th>妻の就業時間</th>
+      <th>補助人数</th>
+      <th>場所</th>
+      <th>タイトル</th>
+      <th>本文</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @experiences.each do |experience| %>
       <tr>
-        <td><%= link_to experience.id, experience_path(experience) %></td>
         <td><%= experience.m_income %></td>
         <td><%= experience.f_income %></td>
         <td><%= experience.m_start %></td>
@@ -87,7 +84,6 @@
         <td><%= experience.location %></td>
         <td><%= experience.title %></td>
         <td><%= experience.body %></td>
-        <td><%=l experience.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_experience_path(experience), :class => 'btn btn-default btn-xs' %>
@@ -96,6 +92,7 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
+                  
         </td>
       </tr>
     <% end %>
