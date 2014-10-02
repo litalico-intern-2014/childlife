@@ -42,3 +42,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rails-i18n' # この行を追加(ransackには関係ないけどdate_select用)
+gem 'ransack'   # この行を追加
+
