@@ -4,7 +4,13 @@ class ExperiencesController < ApplicationController
   # GET /experiences
   # GET /experiences.json
   def index
-    @experiences = Experience.all
+    @search = Experience.search(params[:q]) # この行を追加
+    @experiences = @search.result #修正
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @experiences }
+    end
   end
 
   # GET /experiences/1

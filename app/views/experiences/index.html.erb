@@ -2,6 +2,59 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
+
+<%= search_form_for @search do |f| %>
+  <div>
+  <%= f.label :title_cont, 'タイトル' %>
+  <%= f.text_field :title_cont %>
+  </div>
+  <div>
+  <%= f.label :m_income_gteq, "夫の収入" %>
+  <%= f.text_field :m_income_gteq %>
+  <%= f.label :m_income_lteq, "〜" %>
+  <%= f.text_field :m_income_lteq %>万円  
+  </div>
+
+    <div>
+  <%= f.label :f_income_gteq, "妻の収入" %>
+  <%= f.text_field :f_income_gteq %>
+  <%= f.label :f_income_lteq, "〜" %>
+  <%= f.text_field :f_income_lteq %>万円  
+  </div>
+
+  <div>
+  <%= f.label :m_total_gteq, "夫の就業時間" %>
+  <%= f.text_field :m_total_gteq %>
+  <%= f.label :m_total_lteq, "〜" %>
+  <%= f.text_field :m_total_lteq %>時間
+  </div>
+
+  <div>
+  <%= f.label :f_total_gteq, "妻の就業時間" %>
+  <%= f.text_field :f_total_gteq %>
+  <%= f.label :f_total_lteq, "〜" %>
+  <%= f.text_field :f_total_lteq %>時間
+  </div>
+
+  <div>
+  <%= f.label :helper_gteq, "子育てを手助けしてくれる人" %>
+  <%= f.text_field :helper_gteq %>
+  <%= f.label :helper_lteq, "〜" %>
+  <%= f.text_field :helper_lteq %>人
+  </div>
+
+  <div>
+  <%= f.label :location_cont, '場所' %>
+  <%= f.text_field :location_cont %>
+  </div>
+  
+  <div>
+    <%= f.submit '検索する' %>
+  </div>
+<% end %>
+
+
 <table class="table table-striped">
   <thead>
     <tr>
